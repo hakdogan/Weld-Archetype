@@ -1,0 +1,28 @@
+
+#top {
+    position: relative;
+    background-color: #036fab;
+    color: white;
+    padding: 5px;
+    margin: 0px auto 10px auto;
+    width: 500px;
+}
+
+#bottom_bottom {
+    position: relative;
+    padding: 0px;
+    margin: 10px auto 0px auto;
+    width: 510px;
+}
+
+.center_content {
+    position: relative;
+    background-color: #dddddd;
+    padding: 5px;
+    margin: auto;
+    width: 500px;
+}
+
+.label {
+    padding-right: 15px;
+}
