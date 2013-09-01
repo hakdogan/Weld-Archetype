@@ -39,6 +39,7 @@ public class SaveArticle {
     
     public void save() {
         articleLists.getArticleLists().add(article);
+        article = null;
     }
     
 }

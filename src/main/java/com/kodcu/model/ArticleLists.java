@@ -6,7 +6,6 @@ package com.kodcu.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.enterprise.inject.Model;
 import javax.inject.Named;
 import javax.inject.Singleton;
 

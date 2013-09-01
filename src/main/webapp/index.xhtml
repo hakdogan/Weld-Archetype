@@ -11,24 +11,24 @@
         <ui:composition template="./faceTemplate.xhtml">
 
             <ui:define name="top">
-                <h1>Weld ile CDI</h1>
+                <h1>CDI with Weld Archetype</h1>
             </ui:define>
 
             <ui:define name="content">
                 <h:form id="articleForm">
                     <p:growl id="growl" showDetail="true" />
-                    <h:panelGrid columns="2" cellpadding="2" cellspacing="2">
+                    <h:panelGrid id="form" columns="2" cellpadding="2" cellspacing="2">
                         <h:outputLabel value="Category" styleClass="label" />
-                        <p:inputText value="#{saveArticle.article.category}" required="true" requiredMessage="Category alanı zorunludur" 
-                                     maxlength="20" size="30"  />
+                        <p:inputText value="#{saveArticle.article.category}" required="true" requiredMessage="Category field is required" 
+                                     maxlength="30" size="30"  />
                         
                         <h:outputLabel value="Title" styleClass="label" />
-                        <p:inputText value="#{saveArticle.article.title}" required="true" requiredMessage="Title alanı zorunludur"
-                                     maxlength="20" size="30"/>
+                        <p:inputText value="#{saveArticle.article.title}" required="true" requiredMessage="Title field is required"
+                                     maxlength="30" size="30"/>
                         
                         <h:outputLabel value="Author" styleClass="label"/>
-                        <p:inputText value="#{saveArticle.article.author}" required="true" requiredMessage="Author alanı zorunludur"
-                                     maxlength="20" size="30"/>
+                        <p:inputText value="#{saveArticle.article.author}" required="true" requiredMessage="Author field is required"
+                                     maxlength="30" size="30"/>
                         
                         <p:ajaxStatus>
                             <f:facet name="start">
@@ -39,7 +39,7 @@
                             </f:facet>
                         </p:ajaxStatus>
                         <h:panelGroup>
-                            <p:commandButton value="Save" action="#{saveArticle.save}" update=":articleForm:growl :articleTableForm:articleList" />
+                            <p:commandButton value="Save" action="#{saveArticle.save}" update=":articleForm:growl :articleForm:form :articleTableForm:articleList" />
                             <p:commandButton type="reset" value="Reset"/>
                         </h:panelGroup>
                         
@@ -48,26 +48,26 @@
             </ui:define>
             <ui:define name="bottom">
                 <h:form id="articleTableForm">
-                    <p:dataTable id="articleList" widgetVar="deneme" value="#{articleLists.articleLists}" var="article" emptyMessage="Kayıtlı makale yok..." 
+                    <p:dataTable id="articleList" widgetVar="deneme" value="#{articleLists.articleLists}" var="article" emptyMessage="No registered article..." 
                              paginator="true" paginatorPosition="bottom" rows="5">
                     
                         <p:column style="width: 50px;">
                            <f:facet name="header">
-                               <h:outputText value="Kategori"/>
+                               <h:outputText value="Category"/>
                            </f:facet>
                             <h:outputText value="#{article.category}"/>
                         </p:column>
 
                         <p:column style="width: 150px;">
                            <f:facet name="header">
-                               <h:outputText value="Başlık"/>
+                               <h:outputText value="Title"/>
                            </f:facet>
                             <h:outputText value="#{article.title}"/>
                         </p:column>
 
                         <p:column style="width: 150px;">
                            <f:facet name="header">
-                               <h:outputText value="Yazar"/>
+                               <h:outputText value="Author"/>
                            </f:facet>
                             <h:outputText value="#{article.author}"/>
                         </p:column>
